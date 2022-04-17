@@ -14,16 +14,20 @@ def email_checker(email):
         return "valid"
 
 @app.route("/", methods=['GET', 'POST'])
+def home():
+    return render_template("index.html")
+
+@app.route("/pre", methods=['GET', 'POST'])
 def landing_page():
     if request.method=='POST':
         mail_status = email_checker(str(request.form.get("email")))
     
         if mail_status=="valid":
-            return render_template("index.html", text = "Mail added!", status = "success")
+            return render_template("prereg.html", text = "Mail added!", status = "success")
         else:
-            return render_template("index.html", text="Invalid email.", status = "danger")
+            return render_template("prereg.html", text="Invalid email.", status = "danger")
     
-    return render_template("index.html", text="", status = "")
+    return render_template("prereg.html", text="", status = "")
 
 
 app.run(debug=True)
