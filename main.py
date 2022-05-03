@@ -30,4 +30,4 @@ def landing_page():
     return render_template("prereg.html", text="", status = "")
 
 
-app.run()
+#app.run()
