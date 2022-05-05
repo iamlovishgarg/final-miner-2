@@ -8,21 +8,36 @@
 
     <!-- Bootstrap CSS -->
     <link href="/static/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/static/imgs/favicon.ico" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="http://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/static/imgs/logo-small.ico" type="image/x-icon">
     <title>MRC</title>
     <style>
-        h1{
-            color: white; font-size: 4.5rem;
-            background: linear-gradient(90deg, rgba(168,206,240,0.99) 8.19%, #FFFFFF 49.24%, #ABCEF0 96.79%);
+        body{
+            background: url(/static/imgs/landing_page_bg.svg);
+            background-size: cover;
+        }
+
+        h1 {
+            color: white;
+            font-size: 5.5rem;
+            background: linear-gradient(90deg, rgba(168, 206, 240, 0.99) 8.19%, #FFFFFF 49.24%, #ABCEF0 96.79%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        input{
+        .content{
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .content p{
+            width: 60%;
+            margin: 0 auto;
+            color: white;
+            font-size: 20px;
+            padding: 30px 140px 50px 140px;
+        }
+
+        input {
             width: 30%;
             height: 45px;
             padding-left: 20px;
@@ -32,46 +47,98 @@
             color: white;
         }
 
-        input::placeholder{
+        input::placeholder {
             color: #f5f9ff;
         }
 
-        button{
+        button {
             height: 45px;
-        }
-        
-        .btn-golden{
             margin-top: -5px;
+        }
+
+        .btn-golden {
             background-color: #fad338;
             font-weight: 500;
             border-radius: 5px;
         }
 
-        .btn-golden:hover{
+        .btn-golden:hover {
             background-color: #f0b90b;
+        }
+
+        @media only screen and (max-width: 700px) {
+            body {
+                background: url(/static/imgs/mobile_tab.png);
+            }
+
+            .content{
+                width: 80%;
+                margin: 0;
+            }
+
+            .content h1{
+                font-size: 55px;
+                text-align: left;
+            }
+            
+            .content p{
+                text-align: left;
+                font-size: 18px;
+                padding: 20px 0px 50px 0px;
+                margin: 0;
+                width: 100%;
+            }
+
+            input{
+                width: 100%;
+                height: 60px;
+                border-radius: 10px;
+                font-size: 20px;
+                padding-top: 0px;
+            }
+
+            button{
+                margin-top: 15px;
+                width: 100%;
+                height: 60px;
+            }
+
+            .btn-golden {
+                font-size: 20px;
+                border-radius: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 700px) {
+
+            .content p{
+                padding: 20px 0px 50px 0px;
+            }
         }
     </style>
 </head>
 
-<body style="background: url(/static/imgs/landing_page_bg.svg); background-size: cover;">
+<body>
 
     <div class="container" style="text-align: center; margin-bottom: 20px; padding-top: 10%;">
         <div style="height: 50px; margin-bottom: 15px;">
             <div class="alert alert-{{status}} alert-dismissible fade show" role="alert">
                 <strong>{{text}}</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close" style="display: {{cross_buttoon_visi}};" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
             </div>
         </div>
         <div class="content">
-            <h1>Digitalizing Mining Power<br>into tokens</h1>
-            <p style="color: white; font-size: 20px; padding: 30px 0px 50px 0px;">
-                MRC token aims to take PoW to the next level by providing an<br>opportunity to people to participate in mining without owning any<br>physical computers! 
+            <h1>Digitalizing Mining Power into tokens</h1>
+            <p>
+                MRC token aims to take PoW to the next level by providing an opportunity to people to participate in
+                mining without owning any physical computers!
             </p>
-            <form action="/pre" method="post">
-                <input type="text" placeholder="Enter your email" name="email">
-                <button class="btn btn-golden" type="submit">Join Waitlist <i class="fa fa-arrow-right"></i></button>
-            </form>
         </div>
+        <form action="/" method="post">
+            <input type="text" placeholder="Enter your email" name="email">
+            <button class="btn btn-golden" type="submit">Join Waitlist <img src="/static/imgs/mrc-arrow-icon.svg" style="width: 20px;"></button>
+        </form>
     </div>
 
     <script src="/static/bootstrap.bundle.min.js"></script>
